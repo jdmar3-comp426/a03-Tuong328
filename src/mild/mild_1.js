@@ -67,3 +67,5 @@ export function countArray(array) {
     console.log(output);
     return output;
 }
+
+console.log(sumToString(1,2));
