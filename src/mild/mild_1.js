@@ -10,7 +10,6 @@
  */
 export function sumToString(a, b) {
     let sum = a + b;
-    console.log((a + " + " + b + " = " + sum));
     return (a + " + " + b + " = " + sum);
 }
 
@@ -68,5 +67,3 @@ export function countArray(array) {
     console.log(output);
     return output;
 }
-
-console.log(sumToString(1,2));
