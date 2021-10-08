@@ -50,8 +50,10 @@ export function maxAndMin(numbers) {
             min = numbers[i]
         }
     }
-    
-    return {max:max, min:min};
+    let output = new Object();
+    output["min"] = min;
+    output["max"] = max;
+    return output;
 }
 
 /**

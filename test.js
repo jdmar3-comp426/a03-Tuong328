@@ -10,3 +10,5 @@ import { countArray, getIncreasingArray, maxAndMin, sumToString } from "./src/mi
 console.log(maxAndMin([1, 2, 3]));
 //console.log(countArray([1, 1, 2, 3, 4, "hello"]));
 
+
+//Mild_2.js
