@@ -6,5 +6,5 @@ import { countArray, getIncreasingArray, maxAndMin, sumToString } from "./src/mi
 //MILD_1.js
 //console.log(sumToString(1,2));
 //console.log(getIncreasingArray(3,7));
-//console.log(maxAndMin([1, 2, 3]));
+console.log(maxAndMin([1, 2, 3]));
 //console.log(countArray([1, 1, 2, 3, 4, "hello"]));
