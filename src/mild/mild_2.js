@@ -31,7 +31,9 @@ export function identifyArray(array) {
    }
    //clean array
    for (let i = 0; i < output.length; i++) {
-      output[i] = output[i].replace(/(\r\n|\n|\r)/gm,"");
+      if (output[i] == '\n') {
+         delete output[i];
+      }
    }
    return output;
 }
