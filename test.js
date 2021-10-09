@@ -13,4 +13,4 @@ import { identifyArray, identifyVariable } from "./src/mild/mild_2.js"
 
 
 //Mild_2.js
-console.log(identifyVariable(5));
+//console.log(identifyVariable(5));
