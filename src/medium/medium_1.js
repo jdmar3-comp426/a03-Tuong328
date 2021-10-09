@@ -12,7 +12,7 @@ export function getSum(array) {
     for (let i = 0; i < array.length; i++) {
         sum += array[i];
     }
-    return {sum};
+    return sum;
 }
 
 
