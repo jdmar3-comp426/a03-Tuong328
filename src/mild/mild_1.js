@@ -74,3 +74,5 @@ export function countArray(array) {
     }
     return output;
 }
+
+exports.sumToString = sumToString;
