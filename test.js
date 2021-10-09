@@ -6,11 +6,11 @@ import { countArray, getIncreasingArray, maxAndMin, sumToString } from "./src/mi
 import { identifyArray, identifyVariable } from "./src/mild/mild_2.js"
 
 //MILD_1.js
-//console.log(sumToString(1,2));
+console.log(sumToString(1,2));
 //console.log(getIncreasingArray(3,7));
 //**console.log(maxAndMin([1, 2, 3]));
 //console.log(countArray([1, 1, 2, 3, 4, "hello"]));
 
 
 //Mild_2.js
-//console.log(identifyVariable(5));
+console.log(identifyVariable(5));
