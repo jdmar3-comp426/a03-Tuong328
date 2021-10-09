@@ -69,8 +69,10 @@ export function removeKey(object, key) {
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
-   delete object[key];
-   return object;
+   var newObj = Object.assign(newObj, object);
+   delete newObj[key];
+   return newObj;
+    
 }
 
 /**
@@ -80,8 +82,6 @@ export function removeKeyNonDestructive(object, key) {
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
  *
  * example:
-
-
  let obj = {
     name: 'Mr. Boss',
     title: 'boss',
@@ -89,14 +89,15 @@ export function removeKeyNonDestructive(object, key) {
     password: 'pass123'
  };
  obj = removeKeys(obj, ['password', 'age']);
- // object not looks like this
+ // object now looks like this
  { name: 'Mr. Boss', title: 'boss' }
 
  * @return {*} The object with its keys removed.
  */
 export function removeKeys(object, keyList) {
+   var newObj = Object.assign(newObj, object);
    for (let i = 0; i < keyList.length; i++) {
-      delete object[keyList[i]];
+      delete newObj[keyList[i]];
    }
-   return object;
+   return newObj;
 }
