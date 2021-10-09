@@ -29,7 +29,7 @@ export function identifyArray(array) {
    for (let i = 0; i < array.length; i++) {
       output[i] = identifyVariable(array[i]);
    }
-   return output;
+   return {output};
 }
 
 /**
@@ -74,8 +74,6 @@ export function removeKeyNonDestructive(object, key) {
       newObj[property] = object[property];
    }
    delete newObj[key];
-   return object;
-  
 }
 
 /**
