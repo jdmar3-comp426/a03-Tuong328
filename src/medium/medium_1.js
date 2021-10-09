@@ -67,14 +67,5 @@ export function getStatistics(array) {
     var vari = variance(sorted, mean);
     var sum = getSum(sorted);
     var standard_deviation = Math.sqrt(vari);
-    return {
-        length: sorted.length,
-        sum: sum,
-        mean: mean,
-        median: median,
-        min: min,
-        max: max,
-        variance: vari,
-        standard_deviation: standard_deviation
-    };
+    return{length: sorted.length,sum: sum,mean: mean,median: median,min: min,max: max,variance: vari,standard_deviation: standard_deviation};
 }
