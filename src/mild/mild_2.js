@@ -29,6 +29,10 @@ export function identifyArray(array) {
    for (let i = 0; i < array.length; i++) {
       output[i] = identifyVariable(array[i]);
    }
+   //clean array
+   for (let i = 0; i < output.length; i++) {
+      output[i] = output[i].replace(/(\r\n|\n|\r)/gm,"");
+   }
    return output;
 }
 
