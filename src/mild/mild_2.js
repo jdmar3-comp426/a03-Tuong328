@@ -29,12 +29,6 @@ export function identifyArray(array) {
    for (let i = 0; i < array.length; i++) {
       output[i] = identifyVariable(array[i]);
    }
-   //clean array
-   for (let i = 0; i < output.length; i++) {
-      if (output[i] == '\n') {
-         delete output[i];
-      }
-   }
    return output;
 }
 
@@ -75,7 +69,8 @@ export function removeKey(object, key) {
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
-   delete this.object[key];
+   delete object[key];
+   return object;
 }
 
 /**
@@ -100,10 +95,8 @@ export function removeKeyNonDestructive(object, key) {
  * @return {*} The object with its keys removed.
  */
 export function removeKeys(object, keyList) {
-   let clone = object.clone();
-
    for (let i = 0; i < keyList.length; i++) {
-      delete clone[keyList[i]];
+      delete object[keyList[i]];
    }
-   return clone;
+   return object;
 }
