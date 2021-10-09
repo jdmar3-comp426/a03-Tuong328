@@ -3,7 +3,7 @@
 import esm from "esm"
 
 import { countArray, getIncreasingArray, maxAndMin, sumToString } from "./src/mild/mild_1.js"
-import { identifyArray, identifyVariable } from "./src/mild/mild_2.cjs"
+import { identifyArray, identifyVariable } from "./src/mild/mild_2.js"
 
 //MILD_1.js
 console.log(sumToString(1,2));
