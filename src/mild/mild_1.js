@@ -43,11 +43,11 @@ export function maxAndMin(numbers) {
     let minimum = Number.MAX_SAFE_INTEGER;
     let maximum = Number.MIN_SAFE_INTEGER;
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > max) {
-            max = numbers[i];
+        if (numbers[i] > maximum) {
+            maximum = numbers[i];
         }
-        if (numbers[i] < min) {
-            min = numbers[i]
+        if (numbers[i] < minimum) {
+            minimum = numbers[i]
         }
     }
 
