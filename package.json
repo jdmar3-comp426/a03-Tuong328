@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "mild_1": "node src/mild/mild_1.js",
-    "mild_2": "node src/mild/mild_2.js",
+    "mild_2": "node src/mild/mild_2.cjs",
     "medium_1": "node src/medium/medium_1.js",
     "medium_2": "node src/medium/medium_2.js",
     "medium_3": "node src/medium/medium_3.js",
