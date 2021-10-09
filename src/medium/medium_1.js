@@ -33,7 +33,7 @@ export function getMedian(array) {
     if (array.length == 2) {
         return (array[0] + array[1]) / 2;
     }
-    const sorted = array.sort();
+    const sorted = array.sort(function(a, b) {return a-b});
     if (sorted.length % 2 === 0) {
         return (sorted[sorted.length / 2] + sorted[sorted.length / 2 - 1]) / 2
     }
@@ -60,7 +60,7 @@ export function getMedian(array) {
  }
  */
 export function getStatistics(array) {
-    const sorted = array.sort();
+    const sorted = array.sort(function(a, b) {return a - b});
     var min = sorted[0];
     var median = getMedian(sorted);
     var max = sorted[sorted.length - 1];

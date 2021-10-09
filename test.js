@@ -18,6 +18,10 @@ import {getMedian} from "./src/medium/medium_1";
 //console.log(identifyArray(['some', 3, [3, 4], false]));
 
 //Medium_1
-let array = [3,2,5,6,2,7,4,2,7,5];
-console.log(getMedian(array)); // 4.5
-console.log(3/2);
+let array = [
+    14, 8, 5, 7, 7,
+     5, 2, 7, 5, 3,
+    47, 9
+  ];
+console.log(array.sort(function(a,b) {return a-b}));
+//console.log(getMedian(array)); // 4.5
