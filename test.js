@@ -20,3 +20,4 @@ import {getMedian} from "./src/medium/medium_1";
 //Medium_1
 let array = [3,2,5,6,2,7,4,2,7,5];
 console.log(getMedian(array)); // 4.5
+console.log(3/2);
