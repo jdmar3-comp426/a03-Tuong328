@@ -74,7 +74,10 @@ export function removeKeyNonDestructive(object, key) {
       newObj[property] = object[property];
    }
    delete newObj[key];
+   console.log(object);
+   console.log(key);
    return newObj;
+  
 }
 
 /**
