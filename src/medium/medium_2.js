@@ -21,7 +21,8 @@ see under the methods section
  */
 var years = [];
 var hybridCount = 0;
-var avgMilesPerGallon = [];
+var avgMilesPerGallonCity = 0;
+var avgMilesPerGallonHighway = 0;
 for (let i = 0; i < mpg_data.length; i++) {
     //get years
     years[i] = mpg_data[i].year;
@@ -30,12 +31,15 @@ for (let i = 0; i < mpg_data.length; i++) {
         hybridCount++;
     }
     //calculate average mpg
-    avgMilesPerGallon[i] = (mpg_data[i].city_mpg + mpg_data[i].highway_mpg) / 2;
+    avgMilesPerGallonCity += mpg_data[i].city_mpg;
+    avgMilesPerGallonHighway += mpg_data[i].highway_mpg;
 }
+avgMilesPerGallonHighway /= mpg_data.length;
+avgMilesPerGallonCity /= mpg_data.length;
 
 
 export const allCarStats = {
-    avgMpg: avgMilesPerGallon,
+    avgMpg: {city: avgMilesPerGallonCity, highway: avgMilesPerGallonCity},
     allYearStats: getStatistics(years),
     ratioHybrids: hybridCount / mpg_data.length,
 };
