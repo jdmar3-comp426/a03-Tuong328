@@ -39,7 +39,7 @@ avgMilesPerGallonCity /= mpg_data.length;
 
 
 export const allCarStats = {
-    avgMpg: {city: avgMilesPerGallonCity, highway: avgMilesPerGallonCity},
+    avgMpg: {city: avgMilesPerGallonCity, highway: avgMilesPerGallonHighway},
     allYearStats: getStatistics(years),
     ratioHybrids: hybridCount / mpg_data.length,
 };
