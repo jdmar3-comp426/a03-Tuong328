@@ -1,6 +1,8 @@
 import mpg_data from "./data/mpg_data.js";
 import { getStatistics } from "./medium_1.js";
 
+//allCarStatsDone
+
 /*
 This section can be done by using the array prototype functions.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -43,6 +45,7 @@ export const allCarStats = {
     allYearStats: getStatistics(years),
     ratioHybrids: hybridCount / mpg_data.length,
 };
+
 
 
 /**
@@ -102,6 +105,10 @@ export const allCarStats = {
  *
  * }
  */
+
+const makerHybridsList = [];
+
+
 export const moreStats = {
     makerHybrids: undefined,
     avgMpgByYearAndHybrid: undefined
