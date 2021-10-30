@@ -106,7 +106,18 @@ export const allCarStats = {
  * }
  */
 
-const makerHybridsList = [];
+//map: keys are makes, values are hybrid counts
+const mapOfHybrids = new Map();
+for (let i = 0; i < mpg_data.length; i++) {
+    if (!mapOfHybrids.get(mpg_data[i].make)) {
+        mapOfHybrids.set(mpg_data[i].make, 0);
+    } else {
+        let newCount = mapOfHybrids.get(mpg_data[i].make) + 1;
+        mapOfHybrids.set(mpg_data[i].make, newCount);
+    }
+}
+console.log(mapOfHybrids);
+
 
 
 export const moreStats = {

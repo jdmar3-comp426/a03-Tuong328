@@ -30,3 +30,5 @@ console.log(array.sort(function(a,b) {return a-b}));
 //console.log(getMedian(array)); // 4.5
 
 //Medium_2
+// console.log(mpg_data[0]);
+const mapOfHybrids = new Map();
