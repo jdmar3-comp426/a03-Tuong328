@@ -20,14 +20,14 @@ import mpg_data from "./src/medium/data/mpg_data.js";
 //console.log(identifyArray(['some', 3, [3, 4], false]));
 
 //Medium_1
-/*let array = [
+let array = [
     14, 8, 5, 7, 7,
      5, 2, 7, 5, 3,
     47, 9
   ];
-console.log(array.sort(function(a,b) {return a-b}));
-*/
-//console.log(getMedian(array)); // 4.5
+//console.log(array.sort(function(a,b) {return a-b}));
+
+console.log(getMedian(array)); // 4.5
 
 //Medium_2
 // console.log(mpg_data[0]);
