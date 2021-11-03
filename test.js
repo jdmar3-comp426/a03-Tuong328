@@ -1,6 +1,7 @@
 // Set options as a parameter, environment variable, or rc file.
 // eslint-disable-next-line no-global-assign
 import esm from "esm"
+import { tenTimes } from "./src/spicy/spicy_9"
 
 //MILD_1.js, remove type:modules
 //console.log(sumToString(1,2));
@@ -26,3 +27,4 @@ import esm from "esm"
 
 //Medium_2
 // console.log(mpg_data[0]);
+console.log(tenTimes(2));
