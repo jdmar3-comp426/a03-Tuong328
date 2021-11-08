@@ -223,9 +223,9 @@
     {
       "name": " tenTimes from spicy_9",
       "setup": "",
-      "run": "node --experimental-modules --input-type=module --eval \"import {tenTimes} from './src/spicy/spicy_9.js'; console.log(tenTimes(20));\"",
+      "run": "node --experimental-modules --input-type=module --eval \"import {tenTimes} from './src/spicy/spicy_9.js'; console.log(tenTimes(2));\"",
       "input": "",
-      "output": "200",
+      "output": "20",
       "comparison": "exact",
       "timeout": 10,
       "points": 4
