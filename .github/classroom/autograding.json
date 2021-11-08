@@ -144,7 +144,7 @@
       "name": "searchHighPower(car_data, minHorsepower, minTorque) from medium_3",
       "setup": "",
       "run": "clear",
-      "input": "hello",
+      "input": "",
       "output": "F",
       "comparison": "exact",
       "timeout": 10,
