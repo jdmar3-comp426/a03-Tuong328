@@ -2,7 +2,10 @@
 // eslint-disable-next-line no-global-assign
 import esm from "esm"
 //import { tenTimes } from "./src/spicy/spicy_9"
-import { tenTimes } from "./spicy/spicy_9";
+import { tenTimes } from "./src/spicy/spicy_9.js";
+import {identifyArray} from "./src/mild/mild_2.js"
+
+import {removeKey, removeKeyNonDestructive, removeKeys} from "./src/mild/mild_2.js"
 //import {getMedian} from "./medium/medium_1"
 //MILD_1.js, remove type:modules
 //console.log(sumToString(1,2));
@@ -28,4 +31,12 @@ import { tenTimes } from "./spicy/spicy_9";
 
 //Medium_2
 // console.log(mpg_data[0]);
-console.log(tenTimes(2));
+//console.log(tenTimes(2));
+let obj = {
+  name: 'Mr. Boss',
+  title: 'boss',
+  age: 33,
+  password: 'pass123'
+};
+obj = removeKeyNonDestructive(obj, "name");
+console.log(obj);
