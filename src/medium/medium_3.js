@@ -1,5 +1,4 @@
 import mpg_data from "./data/mpg_data.js";
-export const TERM="xterm-256color";
 /*
 mpg_data is imported for you but that is for testing purposes only. All of the functions should use
 a car_data param that is supplied as the first parameter.
