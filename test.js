@@ -2,8 +2,8 @@
 // eslint-disable-next-line no-global-assign
 import esm from "esm"
 //import { tenTimes } from "./src/spicy/spicy_9"
-import { tenTimes } from "./src/spicy/spicy_9";
-import {getMedian} from "./src/medium/medium_1"
+import { tenTimes } from "./spicy/spicy_9";
+//import {getMedian} from "./medium/medium_1"
 //MILD_1.js, remove type:modules
 //console.log(sumToString(1,2));
 //console.log(getIncreasingArray(3,7));
