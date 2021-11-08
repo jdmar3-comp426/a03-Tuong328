@@ -225,7 +225,7 @@
       "setup": "",
       "run": "node --experimental-modules --input-type=module --eval \"import {tenTimes} from './src/spicy/spicy_9.js'; console.log(tenTimes(20));\"",
       "input": "",
-      "output": "40",
+      "output": "200",
       "comparison": "exact",
       "timeout": 10,
       "points": 4
