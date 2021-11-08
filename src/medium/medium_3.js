@@ -18,7 +18,9 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-    return 1;
+    const output = []
+    console.log("work?");
+    return output;
 }
 
 
