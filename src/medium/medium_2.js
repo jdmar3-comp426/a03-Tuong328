@@ -152,6 +152,8 @@ yearsList.sort((a, b) => (a - b));
 for (let i = 0; i < yearsList.length; i++) {
     avgMpgByYearAndHybridObject[yearsList[i]] = new Object();
 }
+
+
 for (let i = 0; i < yearsList.length; i++) {
     var cityTotal = 0;
     var highwayTotal = 0;
@@ -174,8 +176,9 @@ for (let i = 0; i < yearsList.length; i++) {
         }
     }
     avgMpgByYearAndHybridObject[yearsList[i]] = {
-        hybrid: {city:cityTotal/carsInYear, highway: highwayTotal/carsInYear},
-        notHybrid: {city: cityHybridTotal/hybridCarsInYear, highway: highwayHybridTotal/hybridCarsInYear}
+        hybrid: {city: cityHybridTotal/hybridCarsInYear, highway: highwayHybridTotal/hybridCarsInYear},
+        notHybrid: {city:cityTotal/carsInYear, highway: highwayTotal/carsInYear}
+        
     };
 }
 
