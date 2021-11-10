@@ -17,9 +17,13 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-    const output = []
-    console.log("work?");
-    return output;
+    const output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if (car_data[i].horsepower >= minHorsepower && car_data[i].torque >= minTorque) {
+            output.push(car_data[i]);
+        }
+    }
+    output.sort((a, b) => b.horsepower - a.horsepower);
 }
 
 
@@ -34,7 +38,13 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-    return 1;
+    const output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if (car_data[i].highway_mpg >= minHighway && car_data[i].city_mpg >= minCity) {
+            output.push(car_data[i]);
+        }
+    }
+    output.sort((a, b) => b.highway_mpg - a.highway_mpg);
 }
 
 
