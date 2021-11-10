@@ -155,15 +155,28 @@ for (let i = 0; i < yearsList.length; i++) {
 for (let i = 0; i < yearsList.length; i++) {
     var cityTotal = 0;
     var highwayTotal = 0;
+    var cityHybridTotal = 0;
+    var highwayHybridTotal = 0;
     var carsInYear = 0;
+    var hybridCarsInYear = 0;
     for (let j = 0; j < mpg_data.length; j++) {
         if (mpg_data[j].year === yearsList[i]) {
-            cityTotal += mpg_data[j].city_mpg;
-            highwayTotal += mpg_data[j].highway_mpg;
-            carsInYear += 1;
+            if (mpg_data[j].hybrid) {
+                cityHybridTotal += mpg_data[j].city_mpg;
+                highwayHybridTotal += mpg_data[j].highway_mpg;
+                hybridCarsInYear += 1;
+            } else {
+                cityTotal += mpg_data[j].city_mpg;
+                highwayTotal += mpg_data[j].highway_mpg;
+                carsInYear += 1;
+            }
+            
         }
     }
-    avgMpgByYearAndHybridObject[yearsList[i]] = {city:cityTotal/carsInYear, highway: highwayTotal/carsInYear};
+    avgMpgByYearAndHybridObject[yearsList[i]] = {
+        hybrid: {city:cityTotal/carsInYear, highway: highwayTotal/carsInYear},
+        notHybrid: {city: cityHybridTotal/hybridCarsInYear, highway: highwayHybridTotal/hybridCarsInYear}
+    };
 }
 
 export const moreStats = {
