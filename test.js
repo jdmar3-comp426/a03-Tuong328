@@ -3,4 +3,3 @@
 import esm from "esm"
 import mpg_data from "./src/medium/data/mpg_data.js";
 import { allCarStats, moreStats } from "./src/medium/medium_2.js";
-console.log(moreStats);

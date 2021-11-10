@@ -57,7 +57,15 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-    return 1;
+    const output = [];
+    var lowerCaseSearch = searchTerm.toLowerCase();
+    for (let i = 0; i < car_data.length; i++) {
+        var lowerCaseID = car_data[i].id.toLowerCase();
+        if (lowerCaseID.includes(lowerCaseSearch)) {
+            output.push(car_data[i].id);
+        }
+    }
+    return output;
 }
 
 
@@ -70,5 +78,12 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-    return 1;
+    years.sort((a, b) => b - a);
+    const output = [];
+    for (let i = 0; i < years.length; i++) {
+        if (car_data[i].year === years[i]) {
+            output.push(car_data[i]);
+        }
+    }
+    return output;
 }
