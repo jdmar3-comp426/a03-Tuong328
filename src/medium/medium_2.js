@@ -106,8 +106,67 @@ export const allCarStats = {
  * }
  */
 
+//map: keys are makes, values are hybrid counts
+const mapOfHybrids = new Map();
+for (let i = 0; i < mpg_data.length; i++) {
+    if (!mapOfHybrids.get(mpg_data[i].make)) {
+        if (mpg_data[i].hybrid) {
+            mapOfHybrids.set(mpg_data[i].make, 1);
+        }
+    } else {
+        if (mpg_data[i].hybrid) {
+            let newCount = mapOfHybrids.get(mpg_data[i].make) + 1;
+            mapOfHybrids.set(mpg_data[i].make, newCount);
+        }
+    }
+}
+
+
+const makerHybridsList = [];
+//Use the map to build an array of objects
+for (let [key, value] of mapOfHybrids.entries()) {
+    let makerHybridsObject = {make:null,hybrids:[]};
+    makerHybridsObject.make = key;
+	for (let i = 0; i < mpg_data.length; i++) {
+        if (mpg_data[i].make === key && mpg_data[i].hybrid) {
+            makerHybridsObject.hybrids.push(mpg_data[i].id);
+        } 
+    }
+    makerHybridsList.push(makerHybridsObject);
+}
+//sorting the list by the lengths of hybrids
+makerHybridsList.sort((a, b) => b.hybrids.length - a.hybrids.length);
+
+
+// START avgMpgByYearAndHybrid calculations
+//get the years on the list and put them in a list
+const yearsList = [];
+for (let i = 0; i < mpg_data.length; i++) {
+    if (!yearsList.includes(mpg_data[i].year)) {
+        yearsList.push(mpg_data[i].year);
+    }
+}
+//go through years and make calculations
+const avgMpgByYearAndHybridObject = new Object();
+yearsList.sort((a, b) => (a - b));
+for (let i = 0; i < yearsList.length; i++) {
+    avgMpgByYearAndHybridObject[yearsList[i]] = new Object();
+}
+for (let i = 0; i < yearsList.length; i++) {
+    var cityTotal = 0;
+    var highwayTotal = 0;
+    var carsInYear = 0;
+    for (let j = 0; j < mpg_data.length; j++) {
+        if (mpg_data[j].year === yearsList[i]) {
+            cityTotal += mpg_data[j].city_mpg;
+            highwayTotal += mpg_data[j].highway_mpg;
+            carsInYear += 1;
+        }
+    }
+    avgMpgByYearAndHybridObject[yearsList[i]] = {city:cityTotal/carsInYear, highway: highwayTotal/carsInYear};
+}
 
 export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
+    makerHybrids: makerHybridsList,
+    avgMpgByYearAndHybrid: avgMpgByYearAndHybridObject
 };
