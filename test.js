@@ -7,6 +7,7 @@ import {identifyArray} from "./src/mild/mild_2.js"
 
 import {removeKey, removeKeyNonDestructive, removeKeys} from "./src/mild/mild_2.js"
 import { searchHighPower } from "./src/medium/medium_3.js";
+import { allCarStats } from "./src/medium/medium_2.js";
 //import {getMedian} from "./medium/medium_1"
 //MILD_1.js, remove type:modules
 //console.log(sumToString(1,2));
@@ -33,3 +34,4 @@ import { searchHighPower } from "./src/medium/medium_3.js";
 //Medium_2
 // console.log(mpg_data[0]);
 //console.log(tenTimes(2));
+console.log(allCarStats);
