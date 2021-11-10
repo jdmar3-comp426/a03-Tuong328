@@ -64,7 +64,7 @@ export function searchName(car_data, searchTerm) {
     for (let i = 0; i < car_data.length; i++) {
         var lowerCaseID = car_data[i].id.toLowerCase();
         if (lowerCaseID.includes(lowerCaseSearch)) {
-            output.push(car_data[i].id);
+            output.push(car_data[i]);
         }
     }
     return output;
