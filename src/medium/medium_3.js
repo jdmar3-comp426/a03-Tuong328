@@ -24,6 +24,7 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
         }
     }
     output.sort((a, b) => b.horsepower - a.horsepower);
+    return output;
 }
 
 
@@ -45,6 +46,7 @@ export function searchMpg(car_data, minCity, minHighway) {
         }
     }
     output.sort((a, b) => b.highway_mpg - a.highway_mpg);
+    return output;
 }
 
 
