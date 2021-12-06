@@ -1,5 +1,4 @@
 import mpg_data from "./data/mpg_data.js";
-
 /*
 mpg_data is imported for you but that is for testing purposes only. All of the functions should use
 a car_data param that is supplied as the first parameter.
@@ -18,7 +17,14 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    const output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if (car_data[i].horsepower >= minHorsepower && car_data[i].torque >= minTorque) {
+            output.push(car_data[i]);
+        }
+    }
+    output.sort((a, b) => b.horsepower - a.horsepower);
+    return output;
 }
 
 
@@ -33,7 +39,14 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    const output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if (car_data[i].highway_mpg >= minHighway && car_data[i].city_mpg >= minCity) {
+            output.push(car_data[i]);
+        }
+    }
+    output.sort((a, b) => b.highway_mpg - a.highway_mpg);
+    return output;
 }
 
 
@@ -46,7 +59,15 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    const output = [];
+    var lowerCaseSearch = searchTerm.toLowerCase();
+    for (let i = 0; i < car_data.length; i++) {
+        var lowerCaseID = car_data[i].id.toLowerCase();
+        if (lowerCaseID.includes(lowerCaseSearch)) {
+            output.push(car_data[i]);
+        }
+    }
+    return output;
 }
 
 
@@ -59,5 +80,12 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    years.sort((a, b) => b - a);
+    const output = [];
+    for (let i = 0; i < years.length; i++) {
+        if (car_data[i].year === years[i]) {
+            output.push(car_data[i]);
+        }
+    }
+    return output;
 }

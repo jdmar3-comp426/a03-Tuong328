@@ -1,5 +1,7 @@
 import mpg_data from "./data/mpg_data.js";
-import {getStatistics} from "./medium_1.js";
+import { getStatistics } from "./medium_1.js";
+
+//allCarStatsDone
 
 /*
 This section can be done by using the array prototype functions.
@@ -19,11 +21,31 @@ see under the methods section
  *
  * @param {allCarStats.ratioHybrids} ratio of cars that are hybrids
  */
+var years = [];
+var hybridCount = 0;
+var avgMilesPerGallonCity = 0;
+var avgMilesPerGallonHighway = 0;
+for (let i = 0; i < mpg_data.length; i++) {
+    //get years
+    years[i] = mpg_data[i].year;
+    //count hybrids;
+    if (mpg_data[i].hybrid) {
+        hybridCount++;
+    }
+    //calculate average mpg
+    avgMilesPerGallonCity += mpg_data[i].city_mpg;
+    avgMilesPerGallonHighway += mpg_data[i].highway_mpg;
+}
+avgMilesPerGallonHighway /= mpg_data.length;
+avgMilesPerGallonCity /= mpg_data.length;
+
+
 export const allCarStats = {
-    avgMpg: undefined,
-    allYearStats: undefined,
-    ratioHybrids: undefined,
+    avgMpg: {city: avgMilesPerGallonCity, highway: avgMilesPerGallonHighway},
+    allYearStats: getStatistics(years),
+    ratioHybrids: hybridCount / mpg_data.length,
 };
+
 
 
 /**
@@ -83,7 +105,84 @@ export const allCarStats = {
  *
  * }
  */
+
+//map: keys are makes, values are hybrid counts
+const mapOfHybrids = new Map();
+for (let i = 0; i < mpg_data.length; i++) {
+    if (!mapOfHybrids.get(mpg_data[i].make)) {
+        if (mpg_data[i].hybrid) {
+            mapOfHybrids.set(mpg_data[i].make, 1);
+        }
+    } else {
+        if (mpg_data[i].hybrid) {
+            let newCount = mapOfHybrids.get(mpg_data[i].make) + 1;
+            mapOfHybrids.set(mpg_data[i].make, newCount);
+        }
+    }
+}
+
+
+const makerHybridsList = [];
+//Use the map to build an array of objects
+for (let [key, value] of mapOfHybrids.entries()) {
+    let makerHybridsObject = {make:null,hybrids:[]};
+    makerHybridsObject.make = key;
+	for (let i = 0; i < mpg_data.length; i++) {
+        if (mpg_data[i].make === key && mpg_data[i].hybrid) {
+            makerHybridsObject.hybrids.push(mpg_data[i].id);
+        } 
+    }
+    makerHybridsList.push(makerHybridsObject);
+}
+//sorting the list by the lengths of hybrids
+makerHybridsList.sort((a, b) => b.hybrids.length - a.hybrids.length);
+
+
+// START avgMpgByYearAndHybrid calculations
+//get the years on the list and put them in a list
+const yearsList = [];
+for (let i = 0; i < mpg_data.length; i++) {
+    if (!yearsList.includes(mpg_data[i].year)) {
+        yearsList.push(mpg_data[i].year);
+    }
+}
+//go through years and make calculations
+const avgMpgByYearAndHybridObject = new Object();
+yearsList.sort((a, b) => (a - b));
+for (let i = 0; i < yearsList.length; i++) {
+    avgMpgByYearAndHybridObject[yearsList[i]] = new Object();
+}
+
+
+for (let i = 0; i < yearsList.length; i++) {
+    var cityTotal = 0;
+    var highwayTotal = 0;
+    var cityHybridTotal = 0;
+    var highwayHybridTotal = 0;
+    var carsInYear = 0;
+    var hybridCarsInYear = 0;
+    for (let j = 0; j < mpg_data.length; j++) {
+        if (mpg_data[j].year === yearsList[i]) {
+            if (mpg_data[j].hybrid) {
+                cityHybridTotal += mpg_data[j].city_mpg;
+                highwayHybridTotal += mpg_data[j].highway_mpg;
+                hybridCarsInYear += 1;
+            } else {
+                cityTotal += mpg_data[j].city_mpg;
+                highwayTotal += mpg_data[j].highway_mpg;
+                carsInYear += 1;
+            }
+            
+        }
+    }
+    avgMpgByYearAndHybridObject[yearsList[i]] = {
+        hybrid: {city: cityHybridTotal/hybridCarsInYear, highway: highwayHybridTotal/hybridCarsInYear},
+        notHybrid: {city:cityTotal/carsInYear, highway: highwayTotal/carsInYear}
+        
+    };
+}
+
 export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
+    makerHybrids: makerHybridsList,
+    avgMpgByYearAndHybrid: avgMpgByYearAndHybridObject
 };
